@@ -1,19 +1,19 @@
 [![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)  [![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
 ### 生产使用
-1下载插件脚本
+#### 1下载插件脚本
 ```
 cd /home/ec2-user
 git clone https://github.com/ywdblog/certbot-letencrypt-wildcardcertificates-alydns-au
 mv certbot-letencrypt-wildcardcertificates-alydns-au certbot-plugin
 ```
-2编辑au.sh填写密钥TXY_KEY/TXY_TOKEN
-3配置：
+#### 2编辑au.sh填写密钥TXY_KEY/TXY_TOKEN
+#### 3配置：
 ```
 sudo mkdir /etc/letsencrypt
 sudo tee /etc/letsencrypt/config.ini -a <<<"rsa-key-size = 4096"
 sudo tee /etc/letsencrypt/config.ini -a <<<"email = admin@example.com" 
 ```
-4正式使用去除--dry-run
+#### 4正式使用去除--dry-run
 certbot-init.sh
 ```
 sudo /home/ec2-user/certbot-auto --debug -v certonly \
@@ -23,7 +23,7 @@ sudo /home/ec2-user/certbot-auto --debug -v certonly \
    --server https://acme-v02.api.letsencrypt.org/directory \
    -d *.bizsaas.net --dry-run
 ```
-5配置crontab
+#### 5配置crontab
 ```
 1 1 */1 * * root sh /home/ec2-user/certbot-plugin/certbot-renew_example.net.sh
 ```
