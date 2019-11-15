@@ -11,7 +11,7 @@ mv certbot-letencrypt-wildcardcertificates-alydns-au certbot-plugin
 ```
 sudo mkdir /etc/letsencrypt
 sudo tee /etc/letsencrypt/config.ini -a <<<"rsa-key-size = 4096"
-sudo tee /etc/letsencrypt/config.ini -a <<<"email = admin@example.com" 
+sudo tee /etc/letsencrypt/config.ini -a <<<"email = admin@example.net" 
 ```
 #### 4正式使用去除--dry-run
 certbot-init.sh
@@ -21,7 +21,7 @@ sudo /home/ec2-user/certbot-auto --debug -v certonly \
    --manual-auth-hook "/home/ec2-user/certbot-plugin/au.sh python txy add" \
    --manual-cleanup-hook "/home/ec2-user/certbot-plugin/au.sh python python clean" \
    --server https://acme-v02.api.letsencrypt.org/directory \
-   -d *.bizsaas.net --dry-run
+   -d *.example.net --dry-run
 ```
 #### 5配置crontab
 ```
